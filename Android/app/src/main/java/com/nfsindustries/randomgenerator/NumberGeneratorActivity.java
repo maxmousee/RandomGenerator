@@ -13,9 +13,7 @@ import java.util.Set;
 public class NumberGeneratorActivity extends AppCompatActivity {
     private TextView generatedNumbersTextView;
     private TextView generatedStringTextView;
-    private String locale;
     private LuckyRandomGenerator generator;
-    private Button regenerateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +21,7 @@ public class NumberGeneratorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_number_generator);
         setUpViews();
         animateViews();
-        locale = this.getResources().getConfiguration().locale.getCountry();
+        final String locale = this.getResources().getConfiguration().locale.getCountry();
         generator = new LuckyRandomGenerator(locale);
         generateRandom();
     }
@@ -35,9 +33,9 @@ public class NumberGeneratorActivity extends AppCompatActivity {
     }
 
     private void setUpViews() {
-        generatedNumbersTextView = (TextView) findViewById(R.id.generatedNumbersTextView);
-        generatedStringTextView = (TextView) findViewById(R.id.generatedStringTextView);
-        regenerateButton = (Button) findViewById(R.id.regenerateButton);
+        generatedNumbersTextView = findViewById(R.id.generatedNumbersTextView);
+        generatedStringTextView = findViewById(R.id.generatedStringTextView);
+        final Button regenerateButton = findViewById(R.id.regenerateButton);
         regenerateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

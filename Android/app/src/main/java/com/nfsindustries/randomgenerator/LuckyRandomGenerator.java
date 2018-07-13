@@ -4,9 +4,9 @@ import java.security.SecureRandom;
 import java.util.*;
 
 public class LuckyRandomGenerator {
-    public static int smallestAllowedValue = 1;
-    public static int biggestAllowedValueInUk = 59;
-    public static int biggestAllowedValueInBrazil = 60;
+    private static int smallestAllowedValue = 1;
+    private static int biggestAllowedValueInUk = 59;
+    private static int biggestAllowedValueInBrazil = 60;
 
     private String saltchars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@!#$%&*()[];.,<>/{}-+_";
 
@@ -127,8 +127,7 @@ public class LuckyRandomGenerator {
             final int index = (int) (random.nextFloat() * saltchars.length());
             salt.append(saltchars.charAt(index));
         }
-        final String saltStr = salt.toString();
-        return saltStr;
+        return salt.toString();
     }
 
     /**
